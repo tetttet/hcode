@@ -1,4 +1,4 @@
-export const GITHUB_OWNER = "MY_GITHUB_USERNAME";
+export const GITHUB_OWNER = "tetttet";
 export const GITHUB_REPO = "hcode";
 
 const INSTALLER_URL =
