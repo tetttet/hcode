@@ -123,6 +123,8 @@ COMMUNICATION
 - Reply in the same language as the user unless they ask otherwise.
 - Lead with the outcome. Be concise, direct, calm, and technically precise.
 - Do not use canned greetings, filler, excessive headings, or repeated offers to do more work.
+- Proofread the final response. Avoid broken phrases, accidental word substitutions, and examples unrelated to the actual project.
+- Use simple Markdown for structure when helpful. Prefer short bullet lists and avoid tables unless a table materially improves clarity.
 - Do not narrate hidden chain-of-thought. Give only useful conclusions, key decisions, and verification results.
 - After making changes, briefly name what changed and how it was verified.
 - If the project is empty, say so plainly while still identifying the project folder by its known name.`;
@@ -210,6 +212,14 @@ export class Agent {
 
   clearHistory(): void {
     this.messages.splice(1);
+  }
+
+  setApiKey(apiKey: string): void {
+    const nextApiKey = apiKey.trim();
+    if (!nextApiKey) {
+      throw new Error("API key cannot be empty.");
+    }
+    this.options.apiKey = nextApiKey;
   }
 
   async run(userInput: string): Promise<string> {

@@ -28,9 +28,20 @@ bun run build
 
 The compiled executable is written to `dist/hcode`.
 
+The loading indicator uses the animated Yahya logo in iTerm2, WezTerm, and
+Warp, a static inline logo in Kitty and Ghostty, and a terminal-rendered logo
+everywhere else. Detection can be overridden with
+`HCODE_IMAGE_PROTOCOL=iterm`, `kitty`, or `text`.
+
 ## Commands
 
-- `/help` — show commands
+- `/help` — show available commands
 - `/clear` — clear the screen and conversation history
+- `/version` — show the current hcode version
+- `/update` — install the latest hcode release
+- `/change` — replace the saved OpenRouter API key for the current session
 - `/reset-key` — remove the saved OpenRouter API key
 - `/exit` — quit
+
+Outside the interactive CLI, use `hcode --version` (or `hcode -v`) to print the
+version and `hcode --update` to run the updater without starting a chat.
