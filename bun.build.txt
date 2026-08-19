@@ -1,0 +1,7 @@
+rm -rf dist
+mkdir dist            
+
+bun build src/cli.ts --compile --target=bun-darwin-arm64 --outfile dist/hcode-darwin-arm64
+bun build src/cli.ts --compile --target=bun-darwin-x64 --outfile dist/hcode-darwin-x64    
+bun build src/cli.ts --compile --target=bun-linux-x64 --outfile dist/hcode-linux-x64      
+bun build src/cli.ts --compile --target=bun-linux-arm64 --outfile dist/hcode-linux-arm64  

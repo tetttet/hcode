@@ -11,21 +11,13 @@ export async function installLatestHcode(): Promise<void> {
     {
       stdin: "inherit",
       stdout: "inherit",
-      stderr: "pipe",
+      stderr: "inherit",
     },
   );
 
-  const [stderr, exitCode] = await Promise.all([
-    new Response(installer.stderr).text(),
-    installer.exited,
-  ]);
+  const exitCode = await installer.exited;
 
   if (exitCode !== 0) {
-    const detail = stderr.trim();
-    throw new Error(
-      detail
-        ? `Installer exited with code ${exitCode}: ${detail}`
-        : `Installer exited with code ${exitCode}.`,
-    );
+    throw new Error(`Installer exited with code ${exitCode}.`);
   }
 }
